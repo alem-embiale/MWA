@@ -23,8 +23,6 @@ const ipPromise = (url) => new Promise((resolve, reject) => {
 	});
 });
 
-
-
 ipPromise(hostname)
 	.then((data) => console.log("Promise:", data))
 	.catch((err) => console.log("Promise:", err));
