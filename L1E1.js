@@ -10,6 +10,7 @@
 			return arr.indexOf(item) == index;
 		});
 	}
+
 	
 
 	function removeDups2(myArray){
