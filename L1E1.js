@@ -11,8 +11,6 @@
 		});
 	}
 
-	
-
 	function removeDups2(myArray){
 		return [...new Set(myArray)];
 	}
