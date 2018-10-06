@@ -1,1 +1,7 @@
 /node_modules
+/bin
+/path
+/public
+/routes
+/views
+app.js
