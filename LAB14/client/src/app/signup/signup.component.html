@@ -1,0 +1,42 @@
+<div class='container'>
+  <h2>Login</h2>
+  <form [formGroup]='form' (ngSubmit)="onSubmit()">
+    <div class='row'>
+      <div class='col m6'>
+        <label>First name</label>
+        <input type='text' name='firstName' formControlName='firstName' />
+      </div>
+      <div class='col m6'>
+        <label>Last name</label>
+        <input type='text' name='lastName' formControlName='lastName' />
+      </div>
+    </div>
+
+    <label>Email:</label>
+    <input type='text' name='email' formControlName="email" />
+    <div *ngIf="(f.email.dirty || f.email.touched) && f.email.errors">
+      <p *ngIf="f.email.errors.required">Email is required</p>
+      <p *ngIf="f.email.errors.taken">Email is already taken!</p>
+    </div>
+
+    <div formGroupName='passwords'>
+
+      <label>Password:</label>
+      <input type='password' name='password' formControlName="password" />
+      <div *ngIf="(p.password.dirty || p.password.touched) && p.password.errors">
+        <p *ngIf="p.password.errors.required">Password is required</p>
+      </div>
+
+      <label>Confirm password:</label>
+      <input type='password' name='confirmPassword' formControlName="confirmPassword" />
+      <div *ngIf="(p.confirmPassword.dirty || p.confirmPassword.touched) && p.confirmPassword.errors">
+        <p *ngIf="p.confirmPassword.errors.required">Password is required</p>
+      </div>
+      <p *ngIf="f.passwords.errors && f.passwords.errors.notSame">Passwords need to be same</p>
+
+    </div>
+
+    <p>{{ form.status }}</p>
+    <button type="submit" class='btn btn-primary' [disabled]="!form.valid">Login</button>
+  </form>
+</div>

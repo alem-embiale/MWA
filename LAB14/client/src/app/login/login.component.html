@@ -1,0 +1,29 @@
+<div class='container'>
+
+  <h2>Login</h2>
+
+  <form [formGroup]='form' (ngSubmit)="onSubmit()">
+
+    <label>Email:</label>
+
+    <input type='text' name='email' formControlName="email" />
+
+    <div *ngIf="(f.email.dirty || f.email.touched) && f.email.errors">
+      <p *ngIf="f.email.errors.required">Email is required</p>
+    </div>
+
+    <label>Password:</label>
+
+    <input type='password' name='password' formControlName="password" />
+
+    <div *ngIf="(f.password.dirty || f.password.touched) && f.password.errors">
+      <p *ngIf="f.password.errors.required">Password is required</p>
+    </div>
+
+    <p>{{ form.status }}</p>
+    
+    <button type="submit" class='btn btn-primary' [disabled]="!form.valid">Login</button>
+
+  </form>
+
+</div>
